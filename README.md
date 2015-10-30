@@ -4,7 +4,7 @@ Simple, lightweight and blazing fast makes this a great option to handling encry
 
 Requirements:
 
-PyCrypto | Install [code]pip pycrypto[/code]
+pip, pycrypto
 
 Open a terminal and enter "python lock.py"
 
